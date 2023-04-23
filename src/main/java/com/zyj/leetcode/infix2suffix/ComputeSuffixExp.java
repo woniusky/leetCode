@@ -204,7 +204,8 @@ public class ComputeSuffixExp {
 
     public static void main(String[] args) {
         ComputeSuffixExp computeSuffixExp = new ComputeSuffixExp();
-        String left = "3-3.2*(4+5)-6/(x+2*3)";
+//        String left = "3-3.2*(4+5)-6/(x+2*3)";
+        String left = "3-3.2*(4+5)-6/(1+2*3)";
 //        String left = "3-3.2*(4+5)-6+(x+2-3)";
 
         String right = "25";
