@@ -1,12 +1,10 @@
 package com.zyj.leetcode.infix2suffix;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 计算后缀表达式
@@ -22,20 +20,37 @@ import java.util.Stack;
 @Slf4j
 public class ComputeSuffixExp {
 
-    private Stack<Object> stack;
-    private List<MathExpress> mathExpresses;
+    public static final String SPLIT_SEPARATOR = "__";
 
-    public BigDecimal doParse(List<String> input, Integer right) {
-        stack = new Stack<>();
-        mathExpresses = new ArrayList<>();
+    public static BigDecimal solveUnknownsExp(SolveUnknownsParam param) {
+        if (param == null || param.getUnknowns() == null) {
+            return null;
+        }
+        List<String> inputList = transferAssembleUnknowns(param);
+        return doParse(inputList, param);
+    }
+
+    private static List<String> transferAssembleUnknowns(SolveUnknownsParam param) {
+        final List<String> strings = Infix2Suffix.doTrans(param.getLeft());
+        for (int i = 0; i < strings.size(); i++) {
+            final Object o = param.getUnknownsMap().get(strings.get(i));
+            if (o != null) {
+                strings.set(i, o.toString());
+            }
+        }
+        return strings;
+    }
+
+    public static BigDecimal doParse(List<String> input, SolveUnknownsParam param) {
+        Stack<Object> stack = new Stack<>();
+        List<MathExpress> mathExpresses = new ArrayList<>();
         String ch;
         BigDecimal num1 = BigDecimal.ZERO;
         BigDecimal num2 = BigDecimal.ZERO;
         BigDecimal interAns;
         for (int i = 0; i < input.size(); i++) {
             ch = input.get(i);
-            log.info(" " + ch + " " + stack);
-            if (Boolean.TRUE.equals(isNum(ch)) || Objects.equals(ch, "x")) {
+            if (Boolean.TRUE.equals(isNum(ch)) || Objects.equals(ch, param.getUnknowns())) {
                 stack.push(ch);
             } else {
                 final Object obj2 = stack.pop();
@@ -50,9 +65,9 @@ public class ComputeSuffixExp {
                 }
                 if (!num1Flag || !num2Flag) {
                     MathExpress express = new MathExpress();
-                    express.setLeft(obj1 + " " + ch + " " + obj2);
+                    express.setLeft(obj1 + SPLIT_SEPARATOR + ch + SPLIT_SEPARATOR + obj2);
                     express.setOperator(String.valueOf(ch));
-                    express.setRight("x" + mathExpresses.size());
+                    express.setRight(param.getUnknowns() + mathExpresses.size());
                     mathExpresses.add(express);
                     stack.push(express.getRight());
                     continue;
@@ -68,7 +83,7 @@ public class ComputeSuffixExp {
                         interAns = num1.multiply(num2);
                         break;
                     case "/":
-                        interAns = num1.divide(num2, 2, BigDecimal.ROUND_HALF_UP);
+                        interAns = num1.divide(num2, param.getScale(), BigDecimal.ROUND_HALF_UP);
                         break;
                     default:
                         interAns = BigDecimal.ZERO;
@@ -77,23 +92,26 @@ public class ComputeSuffixExp {
                 stack.push(interAns);
             }
         }
+        if (param.getRight() == null || Objects.equals(param.getRight(), "")) {
+            return new BigDecimal(stack.pop().toString());
+        }
         // 求解未知数
-        return solveUnknowns(right);
+        return solveUnknowns(param, mathExpresses);
     }
 
     /**
      * 求解未知数
-     * @param right
+     *
      * @return
      */
-    private BigDecimal solveUnknowns(Integer right) {
+    private static BigDecimal solveUnknowns(SolveUnknownsParam param, List<MathExpress> mathExpresses) {
         if (mathExpresses.isEmpty()) {
             return null;
         }
         final int size = mathExpresses.size();
         final MathExpress lastExp = mathExpresses.get(size - 1);
-        lastExp.setRight(String.valueOf(right));
-        Boolean first = false;
+        lastExp.setRight(String.valueOf(param.getRight()));
+        boolean first = false;
         for (int i = size - 1; i >= 0; i--) {
             if (i == 0) {
                 first = true;
@@ -101,12 +119,12 @@ public class ComputeSuffixExp {
             final MathExpress express = mathExpresses.get(i);
             switch (express.getOperator()) {
                 case "+": {
-                    final String[] split = express.getLeft().split(" \\+ ");
-                    String newRight = "";
+                    final String[] split = express.getLeft().split(SPLIT_SEPARATOR+"\\+"+SPLIT_SEPARATOR);
+                    String newRight;
                     BigDecimal bigDecimal1;
                     BigDecimal bigDecimal2;
                     // 加数 + 加数 = 和，所以 加数 = 和 - 另一个加数
-                    if (split[0].contains("x")) {
+                    if (split[0].contains(param.getUnknowns())) {
                         bigDecimal1 = new BigDecimal(express.getRight());
                         bigDecimal2 = new BigDecimal(split[1]);
                     } else {
@@ -123,10 +141,10 @@ public class ComputeSuffixExp {
                     break;
                 }
                 case "-": {
-                    final String[] split = express.getLeft().split(" " + express.getOperator() + " ");
+                    final String[] split = express.getLeft().split(SPLIT_SEPARATOR + express.getOperator() + SPLIT_SEPARATOR);
                     String newRight;
                     // 减数 - 被减数 = 差，所以 减数 = 差 + 被减数
-                    if (split[0].contains("x")) {
+                    if (split[0].contains(param.getUnknowns())) {
                         BigDecimal bigDecimal1 = new BigDecimal(express.getRight());
                         BigDecimal bigDecimal2 = new BigDecimal(split[1]);
                         newRight = bigDecimal1.add(bigDecimal2).toPlainString();
@@ -145,17 +163,17 @@ public class ComputeSuffixExp {
                     break;
                 }
                 case "*": {
-                    final String[] split = express.getLeft().split(" " + express.getOperator() + " ");
+                    final String[] split = express.getLeft().split(SPLIT_SEPARATOR + "\\*" + SPLIT_SEPARATOR);
                     String newRight = "";
                     // 乘数 * 乘数 = 积， 所以 乘数 = 积 / 另一个乘数
                     BigDecimal bigDecimal1 = new BigDecimal(express.getRight());
                     BigDecimal bigDecimal2;
-                    if (split[0].contains("x")) {
+                    if (split[0].contains(param.getUnknowns())) {
                         bigDecimal2 = new BigDecimal(split[1]);
                     } else {
                         bigDecimal2 = new BigDecimal(split[0]);
                     }
-                    newRight = bigDecimal1.divide(bigDecimal2, 2, BigDecimal.ROUND_HALF_UP).toPlainString();
+                    newRight = bigDecimal1.divide(bigDecimal2, param.getScale(), BigDecimal.ROUND_HALF_UP).toPlainString();
                     if (first) {
                         return new BigDecimal(newRight);
                     } else {
@@ -165,10 +183,10 @@ public class ComputeSuffixExp {
                     break;
                 }
                 case "/": {
-                    final String[] split = express.getLeft().split(" " + express.getOperator() + " ");
-                    String newRight = "";
+                    final String[] split = express.getLeft().split(SPLIT_SEPARATOR + "\\/" + SPLIT_SEPARATOR);
+                    String newRight;
                     // 被除数 / 除数 = 商， 所以 被除数 = 商 * 除数
-                    if (split[0].contains("x")) {
+                    if (split[0].contains(param.getUnknowns())) {
                         BigDecimal bigDecimal1 = new BigDecimal(express.getRight());
                         BigDecimal bigDecimal2 = new BigDecimal(split[1]);
                         newRight = bigDecimal1.multiply(bigDecimal2).toPlainString();
@@ -176,7 +194,7 @@ public class ComputeSuffixExp {
                         // 除数 = 被除数 / 商
                         BigDecimal bigDecimal1 = new BigDecimal(express.getRight());
                         BigDecimal bigDecimal2 = new BigDecimal(split[0]);
-                        newRight = bigDecimal2.divide(bigDecimal1, 2, BigDecimal.ROUND_HALF_UP).toPlainString();
+                        newRight = bigDecimal2.divide(bigDecimal1, param.getScale(), BigDecimal.ROUND_HALF_UP).toPlainString();
                     }
                     if (first) {
                         return new BigDecimal(newRight);
@@ -193,7 +211,7 @@ public class ComputeSuffixExp {
         return null;
     }
 
-    public Boolean isNum(Object obj) {
+    public static Boolean isNum(Object obj) {
         try {
             new BigDecimal(obj.toString());
             return true;
@@ -209,10 +227,16 @@ public class ComputeSuffixExp {
 //        String left = "3-3.2*(4+5)-6+(x+2-3)";
 
         String right = "25";
-//        left = left+"-"+right;
 
-        final List<String> strings = Infix2Suffix.doTrans(left);
+        SolveUnknownsParam solveUnknownsParam = new SolveUnknownsParam();
+        solveUnknownsParam.setLeft(left);
+        solveUnknownsParam.setUnknowns("x");
+        solveUnknownsParam.setUnknownsMap(new HashMap<>());
+        log.info("result>:{}", solveUnknownsExp(solveUnknownsParam));
 
-        log.info(computeSuffixExp.doParse(strings, 25).toPlainString());
+        solveUnknownsParam.setLeft("-3-3.2*(x+5)-6/(1+2*3)");
+        solveUnknownsParam.setRight(right);
+        log.info("result>:{}", solveUnknownsExp(solveUnknownsParam));
+
     }
 }

@@ -1,0 +1,1496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyj.leetcode.business.order.dao.PurOrderMapper">
+  <resultMap id="BaseResultMap" type="com.zyj.leetcode.business.order.entity.PurOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bill_no" jdbcType="VARCHAR" property="billNo" />
+    <result column="bill_date" jdbcType="TIMESTAMP" property="billDate" />
+    <result column="plan_receive_date" jdbcType="TIMESTAMP" property="planReceiveDate" />
+    <result column="supplier_id" jdbcType="BIGINT" property="supplierId" />
+    <result column="supplier_address" jdbcType="VARCHAR" property="supplierAddress" />
+    <result column="linkman" jdbcType="VARCHAR" property="linkman" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="account_mode" jdbcType="VARCHAR" property="accountMode" />
+    <result column="trad_no" jdbcType="VARCHAR" property="tradNo" />
+    <result column="purchase_type" jdbcType="TINYINT" property="purchaseType" />
+    <result column="enable_quality" jdbcType="TINYINT" property="enableQuality" />
+    <result column="tax_rate" jdbcType="DECIMAL" property="taxRate" />
+    <result column="notax_amount" jdbcType="DECIMAL" property="notaxAmount" />
+    <result column="tax_amount" jdbcType="DECIMAL" property="taxAmount" />
+    <result column="tax" jdbcType="DECIMAL" property="tax" />
+    <result column="person_id" jdbcType="BIGINT" property="personId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="enable_approve" jdbcType="TINYINT" property="enableApprove" />
+    <result column="approve_status" jdbcType="TINYINT" property="approveStatus" />
+    <result column="current_state" jdbcType="TINYINT" property="currentState" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="last_modifier_id" jdbcType="BIGINT" property="lastModifierId" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="business_id" jdbcType="BIGINT" property="businessId" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="authorizer_id" jdbcType="BIGINT" property="authorizerId" />
+    <result column="authorizer_dept_id" jdbcType="BIGINT" property="authorizerDeptId" />
+    <result column="process_instance_id" jdbcType="VARCHAR" property="processInstanceId" />
+    <result column="process_instance_status" jdbcType="BIT" property="processInstanceStatus" />
+    <result column="last_close_id" jdbcType="BIGINT" property="lastCloseId" />
+    <result column="gmt_close" jdbcType="TIMESTAMP" property="gmtClose" />
+    <result column="payment_term_id" jdbcType="BIGINT" property="paymentTermId" />
+    <result column="publish_state" jdbcType="TINYINT" property="publishState" />
+    <result column="chang_id" jdbcType="BIGINT" property="changId" />
+    <result column="tax_id" jdbcType="BIGINT" property="taxId" />
+    <result column="currency_id" jdbcType="BIGINT" property="currencyId" />
+    <result column="currency_name" jdbcType="VARCHAR" property="currencyName" />
+    <result column="purchase_type_business_id" jdbcType="BIGINT" property="purchaseTypeBusinessId" />
+    <result column="created_shop_id" jdbcType="BIGINT" property="createdShopId" />
+    <result column="urge" jdbcType="TINYINT" property="urge" />
+    <result column="attribute1" jdbcType="VARCHAR" property="attribute1" />
+    <result column="attribute2" jdbcType="VARCHAR" property="attribute2" />
+    <result column="attribute3" jdbcType="VARCHAR" property="attribute3" />
+    <result column="attribute4" jdbcType="VARCHAR" property="attribute4" />
+    <result column="attribute5" jdbcType="VARCHAR" property="attribute5" />
+    <result column="attribute6" jdbcType="VARCHAR" property="attribute6" />
+    <result column="attribute7" jdbcType="VARCHAR" property="attribute7" />
+    <result column="attribute8" jdbcType="VARCHAR" property="attribute8" />
+    <result column="attribute9" jdbcType="VARCHAR" property="attribute9" />
+    <result column="attribute10" jdbcType="VARCHAR" property="attribute10" />
+    <result column="attribute11" jdbcType="VARCHAR" property="attribute11" />
+    <result column="attribute12" jdbcType="VARCHAR" property="attribute12" />
+    <result column="attribute13" jdbcType="VARCHAR" property="attribute13" />
+    <result column="attribute14" jdbcType="VARCHAR" property="attribute14" />
+    <result column="attribute15" jdbcType="VARCHAR" property="attribute15" />
+    <result column="attribute16" jdbcType="VARCHAR" property="attribute16" />
+    <result column="attribute17" jdbcType="VARCHAR" property="attribute17" />
+    <result column="attribute18" jdbcType="VARCHAR" property="attribute18" />
+    <result column="attribute19" jdbcType="VARCHAR" property="attribute19" />
+    <result column="attribute20" jdbcType="VARCHAR" property="attribute20" />
+    <result column="attribute21" jdbcType="VARCHAR" property="attribute21" />
+    <result column="attribute22" jdbcType="VARCHAR" property="attribute22" />
+    <result column="attribute23" jdbcType="VARCHAR" property="attribute23" />
+    <result column="attribute24" jdbcType="VARCHAR" property="attribute24" />
+    <result column="attribute25" jdbcType="VARCHAR" property="attribute25" />
+    <result column="attribute26" jdbcType="VARCHAR" property="attribute26" />
+    <result column="attribute27" jdbcType="VARCHAR" property="attribute27" />
+    <result column="attribute28" jdbcType="VARCHAR" property="attribute28" />
+    <result column="attribute29" jdbcType="VARCHAR" property="attribute29" />
+    <result column="attribute30" jdbcType="VARCHAR" property="attribute30" />
+    <result column="attribute31" jdbcType="VARCHAR" property="attribute31" />
+    <result column="attribute32" jdbcType="VARCHAR" property="attribute32" />
+    <result column="attribute33" jdbcType="VARCHAR" property="attribute33" />
+    <result column="attribute34" jdbcType="VARCHAR" property="attribute34" />
+    <result column="attribute35" jdbcType="VARCHAR" property="attribute35" />
+    <result column="attribute36" jdbcType="VARCHAR" property="attribute36" />
+    <result column="attribute37" jdbcType="VARCHAR" property="attribute37" />
+    <result column="attribute38" jdbcType="VARCHAR" property="attribute38" />
+    <result column="attribute39" jdbcType="VARCHAR" property="attribute39" />
+    <result column="attribute40" jdbcType="VARCHAR" property="attribute40" />
+    <result column="attribute41" jdbcType="VARCHAR" property="attribute41" />
+    <result column="attribute42" jdbcType="VARCHAR" property="attribute42" />
+    <result column="attribute43" jdbcType="VARCHAR" property="attribute43" />
+    <result column="attribute44" jdbcType="VARCHAR" property="attribute44" />
+    <result column="attribute45" jdbcType="VARCHAR" property="attribute45" />
+    <result column="attribute46" jdbcType="VARCHAR" property="attribute46" />
+    <result column="attribute47" jdbcType="VARCHAR" property="attribute47" />
+    <result column="attribute48" jdbcType="VARCHAR" property="attribute48" />
+    <result column="attribute49" jdbcType="VARCHAR" property="attribute49" />
+    <result column="attribute50" jdbcType="VARCHAR" property="attribute50" />
+    <result column="write_back_status" jdbcType="TINYINT" property="writeBackStatus" />
+    <result column="fail_reason" jdbcType="VARCHAR" property="failReason" />
+    <result column="fail_reason_type" jdbcType="TINYINT" property="failReasonType" />
+    <result column="supplier_pool_id" jdbcType="BIGINT" property="supplierPoolId" />
+    <result column="gmt_close_cancel" jdbcType="TIMESTAMP" property="gmtCloseCancel" />
+    <result column="last_cancel_id" jdbcType="BIGINT" property="lastCancelId" />
+    <result column="notax_local_amount" jdbcType="DECIMAL" property="notaxLocalAmount" />
+    <result column="tax_local_amount" jdbcType="DECIMAL" property="taxLocalAmount" />
+    <result column="local_tax" jdbcType="DECIMAL" property="localTax" />
+    <result column="exchange_rate" jdbcType="DECIMAL" property="exchangeRate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyj.leetcode.business.order.entity.PurOrder">
+    <result column="attachment" jdbcType="LONGVARCHAR" property="attachment" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bill_no, bill_date, plan_receive_date, supplier_id, supplier_address, linkman, 
+    telephone, account_mode, trad_no, purchase_type, enable_quality, tax_rate, notax_amount, 
+    tax_amount, tax, person_id, remark, enable_approve, approve_status, current_state, 
+    creater_id, last_modifier_id, gmt_create, gmt_modified, del_flag, tenant_id, business_id, 
+    shop_id, authorizer_id, authorizer_dept_id, process_instance_id, process_instance_status, 
+    last_close_id, gmt_close, payment_term_id, publish_state, chang_id, tax_id, currency_id, 
+    currency_name, purchase_type_business_id, created_shop_id, urge, attribute1, attribute2, 
+    attribute3, attribute4, attribute5, attribute6, attribute7, attribute8, attribute9, 
+    attribute10, attribute11, attribute12, attribute13, attribute14, attribute15, attribute16, 
+    attribute17, attribute18, attribute19, attribute20, attribute21, attribute22, attribute23, 
+    attribute24, attribute25, attribute26, attribute27, attribute28, attribute29, attribute30, 
+    attribute31, attribute32, attribute33, attribute34, attribute35, attribute36, attribute37, 
+    attribute38, attribute39, attribute40, attribute41, attribute42, attribute43, attribute44, 
+    attribute45, attribute46, attribute47, attribute48, attribute49, attribute50, write_back_status, 
+    fail_reason, fail_reason_type, supplier_pool_id, gmt_close_cancel, last_cancel_id, 
+    notax_local_amount, tax_local_amount, local_tax, exchange_rate
+  </sql>
+  <sql id="Blob_Column_List">
+    attachment
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pur_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pur_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zyj.leetcode.business.order.entity.PurOrder">
+    insert into pur_order (id, bill_no, bill_date, 
+      plan_receive_date, supplier_id, supplier_address, 
+      linkman, telephone, account_mode, 
+      trad_no, purchase_type, enable_quality, 
+      tax_rate, notax_amount, tax_amount, 
+      tax, person_id, remark, 
+      enable_approve, approve_status, current_state, 
+      creater_id, last_modifier_id, gmt_create, 
+      gmt_modified, del_flag, tenant_id, 
+      business_id, shop_id, authorizer_id, 
+      authorizer_dept_id, process_instance_id, process_instance_status, 
+      last_close_id, gmt_close, payment_term_id, 
+      publish_state, chang_id, tax_id, 
+      currency_id, currency_name, purchase_type_business_id, 
+      created_shop_id, urge, attribute1, 
+      attribute2, attribute3, attribute4, 
+      attribute5, attribute6, attribute7, 
+      attribute8, attribute9, attribute10, 
+      attribute11, attribute12, attribute13, 
+      attribute14, attribute15, attribute16, 
+      attribute17, attribute18, attribute19, 
+      attribute20, attribute21, attribute22, 
+      attribute23, attribute24, attribute25, 
+      attribute26, attribute27, attribute28, 
+      attribute29, attribute30, attribute31, 
+      attribute32, attribute33, attribute34, 
+      attribute35, attribute36, attribute37, 
+      attribute38, attribute39, attribute40, 
+      attribute41, attribute42, attribute43, 
+      attribute44, attribute45, attribute46, 
+      attribute47, attribute48, attribute49, 
+      attribute50, write_back_status, fail_reason, 
+      fail_reason_type, supplier_pool_id, gmt_close_cancel, 
+      last_cancel_id, notax_local_amount, tax_local_amount, 
+      local_tax, exchange_rate, attachment
+      )
+    values (#{id,jdbcType=BIGINT}, #{billNo,jdbcType=VARCHAR}, #{billDate,jdbcType=TIMESTAMP}, 
+      #{planReceiveDate,jdbcType=TIMESTAMP}, #{supplierId,jdbcType=BIGINT}, #{supplierAddress,jdbcType=VARCHAR}, 
+      #{linkman,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{accountMode,jdbcType=VARCHAR}, 
+      #{tradNo,jdbcType=VARCHAR}, #{purchaseType,jdbcType=TINYINT}, #{enableQuality,jdbcType=TINYINT}, 
+      #{taxRate,jdbcType=DECIMAL}, #{notaxAmount,jdbcType=DECIMAL}, #{taxAmount,jdbcType=DECIMAL}, 
+      #{tax,jdbcType=DECIMAL}, #{personId,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, 
+      #{enableApprove,jdbcType=TINYINT}, #{approveStatus,jdbcType=TINYINT}, #{currentState,jdbcType=TINYINT}, 
+      #{createrId,jdbcType=BIGINT}, #{lastModifierId,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT}, #{tenantId,jdbcType=BIGINT}, 
+      #{businessId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, #{authorizerId,jdbcType=BIGINT}, 
+      #{authorizerDeptId,jdbcType=BIGINT}, #{processInstanceId,jdbcType=VARCHAR}, #{processInstanceStatus,jdbcType=BIT}, 
+      #{lastCloseId,jdbcType=BIGINT}, #{gmtClose,jdbcType=TIMESTAMP}, #{paymentTermId,jdbcType=BIGINT}, 
+      #{publishState,jdbcType=TINYINT}, #{changId,jdbcType=BIGINT}, #{taxId,jdbcType=BIGINT}, 
+      #{currencyId,jdbcType=BIGINT}, #{currencyName,jdbcType=VARCHAR}, #{purchaseTypeBusinessId,jdbcType=BIGINT}, 
+      #{createdShopId,jdbcType=BIGINT}, #{urge,jdbcType=TINYINT}, #{attribute1,jdbcType=VARCHAR}, 
+      #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR}, #{attribute4,jdbcType=VARCHAR}, 
+      #{attribute5,jdbcType=VARCHAR}, #{attribute6,jdbcType=VARCHAR}, #{attribute7,jdbcType=VARCHAR}, 
+      #{attribute8,jdbcType=VARCHAR}, #{attribute9,jdbcType=VARCHAR}, #{attribute10,jdbcType=VARCHAR}, 
+      #{attribute11,jdbcType=VARCHAR}, #{attribute12,jdbcType=VARCHAR}, #{attribute13,jdbcType=VARCHAR}, 
+      #{attribute14,jdbcType=VARCHAR}, #{attribute15,jdbcType=VARCHAR}, #{attribute16,jdbcType=VARCHAR}, 
+      #{attribute17,jdbcType=VARCHAR}, #{attribute18,jdbcType=VARCHAR}, #{attribute19,jdbcType=VARCHAR}, 
+      #{attribute20,jdbcType=VARCHAR}, #{attribute21,jdbcType=VARCHAR}, #{attribute22,jdbcType=VARCHAR}, 
+      #{attribute23,jdbcType=VARCHAR}, #{attribute24,jdbcType=VARCHAR}, #{attribute25,jdbcType=VARCHAR}, 
+      #{attribute26,jdbcType=VARCHAR}, #{attribute27,jdbcType=VARCHAR}, #{attribute28,jdbcType=VARCHAR}, 
+      #{attribute29,jdbcType=VARCHAR}, #{attribute30,jdbcType=VARCHAR}, #{attribute31,jdbcType=VARCHAR}, 
+      #{attribute32,jdbcType=VARCHAR}, #{attribute33,jdbcType=VARCHAR}, #{attribute34,jdbcType=VARCHAR}, 
+      #{attribute35,jdbcType=VARCHAR}, #{attribute36,jdbcType=VARCHAR}, #{attribute37,jdbcType=VARCHAR}, 
+      #{attribute38,jdbcType=VARCHAR}, #{attribute39,jdbcType=VARCHAR}, #{attribute40,jdbcType=VARCHAR}, 
+      #{attribute41,jdbcType=VARCHAR}, #{attribute42,jdbcType=VARCHAR}, #{attribute43,jdbcType=VARCHAR}, 
+      #{attribute44,jdbcType=VARCHAR}, #{attribute45,jdbcType=VARCHAR}, #{attribute46,jdbcType=VARCHAR}, 
+      #{attribute47,jdbcType=VARCHAR}, #{attribute48,jdbcType=VARCHAR}, #{attribute49,jdbcType=VARCHAR}, 
+      #{attribute50,jdbcType=VARCHAR}, #{writeBackStatus,jdbcType=TINYINT}, #{failReason,jdbcType=VARCHAR}, 
+      #{failReasonType,jdbcType=TINYINT}, #{supplierPoolId,jdbcType=BIGINT}, #{gmtCloseCancel,jdbcType=TIMESTAMP}, 
+      #{lastCancelId,jdbcType=BIGINT}, #{notaxLocalAmount,jdbcType=DECIMAL}, #{taxLocalAmount,jdbcType=DECIMAL}, 
+      #{localTax,jdbcType=DECIMAL}, #{exchangeRate,jdbcType=DECIMAL}, #{attachment,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyj.leetcode.business.order.entity.PurOrder">
+    insert into pur_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="billNo != null">
+        bill_no,
+      </if>
+      <if test="billDate != null">
+        bill_date,
+      </if>
+      <if test="planReceiveDate != null">
+        plan_receive_date,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="supplierAddress != null">
+        supplier_address,
+      </if>
+      <if test="linkman != null">
+        linkman,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="accountMode != null">
+        account_mode,
+      </if>
+      <if test="tradNo != null">
+        trad_no,
+      </if>
+      <if test="purchaseType != null">
+        purchase_type,
+      </if>
+      <if test="enableQuality != null">
+        enable_quality,
+      </if>
+      <if test="taxRate != null">
+        tax_rate,
+      </if>
+      <if test="notaxAmount != null">
+        notax_amount,
+      </if>
+      <if test="taxAmount != null">
+        tax_amount,
+      </if>
+      <if test="tax != null">
+        tax,
+      </if>
+      <if test="personId != null">
+        person_id,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="enableApprove != null">
+        enable_approve,
+      </if>
+      <if test="approveStatus != null">
+        approve_status,
+      </if>
+      <if test="currentState != null">
+        current_state,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="lastModifierId != null">
+        last_modifier_id,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="businessId != null">
+        business_id,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="authorizerId != null">
+        authorizer_id,
+      </if>
+      <if test="authorizerDeptId != null">
+        authorizer_dept_id,
+      </if>
+      <if test="processInstanceId != null">
+        process_instance_id,
+      </if>
+      <if test="processInstanceStatus != null">
+        process_instance_status,
+      </if>
+      <if test="lastCloseId != null">
+        last_close_id,
+      </if>
+      <if test="gmtClose != null">
+        gmt_close,
+      </if>
+      <if test="paymentTermId != null">
+        payment_term_id,
+      </if>
+      <if test="publishState != null">
+        publish_state,
+      </if>
+      <if test="changId != null">
+        chang_id,
+      </if>
+      <if test="taxId != null">
+        tax_id,
+      </if>
+      <if test="currencyId != null">
+        currency_id,
+      </if>
+      <if test="currencyName != null">
+        currency_name,
+      </if>
+      <if test="purchaseTypeBusinessId != null">
+        purchase_type_business_id,
+      </if>
+      <if test="createdShopId != null">
+        created_shop_id,
+      </if>
+      <if test="urge != null">
+        urge,
+      </if>
+      <if test="attribute1 != null">
+        attribute1,
+      </if>
+      <if test="attribute2 != null">
+        attribute2,
+      </if>
+      <if test="attribute3 != null">
+        attribute3,
+      </if>
+      <if test="attribute4 != null">
+        attribute4,
+      </if>
+      <if test="attribute5 != null">
+        attribute5,
+      </if>
+      <if test="attribute6 != null">
+        attribute6,
+      </if>
+      <if test="attribute7 != null">
+        attribute7,
+      </if>
+      <if test="attribute8 != null">
+        attribute8,
+      </if>
+      <if test="attribute9 != null">
+        attribute9,
+      </if>
+      <if test="attribute10 != null">
+        attribute10,
+      </if>
+      <if test="attribute11 != null">
+        attribute11,
+      </if>
+      <if test="attribute12 != null">
+        attribute12,
+      </if>
+      <if test="attribute13 != null">
+        attribute13,
+      </if>
+      <if test="attribute14 != null">
+        attribute14,
+      </if>
+      <if test="attribute15 != null">
+        attribute15,
+      </if>
+      <if test="attribute16 != null">
+        attribute16,
+      </if>
+      <if test="attribute17 != null">
+        attribute17,
+      </if>
+      <if test="attribute18 != null">
+        attribute18,
+      </if>
+      <if test="attribute19 != null">
+        attribute19,
+      </if>
+      <if test="attribute20 != null">
+        attribute20,
+      </if>
+      <if test="attribute21 != null">
+        attribute21,
+      </if>
+      <if test="attribute22 != null">
+        attribute22,
+      </if>
+      <if test="attribute23 != null">
+        attribute23,
+      </if>
+      <if test="attribute24 != null">
+        attribute24,
+      </if>
+      <if test="attribute25 != null">
+        attribute25,
+      </if>
+      <if test="attribute26 != null">
+        attribute26,
+      </if>
+      <if test="attribute27 != null">
+        attribute27,
+      </if>
+      <if test="attribute28 != null">
+        attribute28,
+      </if>
+      <if test="attribute29 != null">
+        attribute29,
+      </if>
+      <if test="attribute30 != null">
+        attribute30,
+      </if>
+      <if test="attribute31 != null">
+        attribute31,
+      </if>
+      <if test="attribute32 != null">
+        attribute32,
+      </if>
+      <if test="attribute33 != null">
+        attribute33,
+      </if>
+      <if test="attribute34 != null">
+        attribute34,
+      </if>
+      <if test="attribute35 != null">
+        attribute35,
+      </if>
+      <if test="attribute36 != null">
+        attribute36,
+      </if>
+      <if test="attribute37 != null">
+        attribute37,
+      </if>
+      <if test="attribute38 != null">
+        attribute38,
+      </if>
+      <if test="attribute39 != null">
+        attribute39,
+      </if>
+      <if test="attribute40 != null">
+        attribute40,
+      </if>
+      <if test="attribute41 != null">
+        attribute41,
+      </if>
+      <if test="attribute42 != null">
+        attribute42,
+      </if>
+      <if test="attribute43 != null">
+        attribute43,
+      </if>
+      <if test="attribute44 != null">
+        attribute44,
+      </if>
+      <if test="attribute45 != null">
+        attribute45,
+      </if>
+      <if test="attribute46 != null">
+        attribute46,
+      </if>
+      <if test="attribute47 != null">
+        attribute47,
+      </if>
+      <if test="attribute48 != null">
+        attribute48,
+      </if>
+      <if test="attribute49 != null">
+        attribute49,
+      </if>
+      <if test="attribute50 != null">
+        attribute50,
+      </if>
+      <if test="writeBackStatus != null">
+        write_back_status,
+      </if>
+      <if test="failReason != null">
+        fail_reason,
+      </if>
+      <if test="failReasonType != null">
+        fail_reason_type,
+      </if>
+      <if test="supplierPoolId != null">
+        supplier_pool_id,
+      </if>
+      <if test="gmtCloseCancel != null">
+        gmt_close_cancel,
+      </if>
+      <if test="lastCancelId != null">
+        last_cancel_id,
+      </if>
+      <if test="notaxLocalAmount != null">
+        notax_local_amount,
+      </if>
+      <if test="taxLocalAmount != null">
+        tax_local_amount,
+      </if>
+      <if test="localTax != null">
+        local_tax,
+      </if>
+      <if test="exchangeRate != null">
+        exchange_rate,
+      </if>
+      <if test="attachment != null">
+        attachment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billDate != null">
+        #{billDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planReceiveDate != null">
+        #{planReceiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=BIGINT},
+      </if>
+      <if test="supplierAddress != null">
+        #{supplierAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="accountMode != null">
+        #{accountMode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradNo != null">
+        #{tradNo,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseType != null">
+        #{purchaseType,jdbcType=TINYINT},
+      </if>
+      <if test="enableQuality != null">
+        #{enableQuality,jdbcType=TINYINT},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="notaxAmount != null">
+        #{notaxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="taxAmount != null">
+        #{taxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enableApprove != null">
+        #{enableApprove,jdbcType=TINYINT},
+      </if>
+      <if test="approveStatus != null">
+        #{approveStatus,jdbcType=TINYINT},
+      </if>
+      <if test="currentState != null">
+        #{currentState,jdbcType=TINYINT},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="lastModifierId != null">
+        #{lastModifierId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="businessId != null">
+        #{businessId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="authorizerId != null">
+        #{authorizerId,jdbcType=BIGINT},
+      </if>
+      <if test="authorizerDeptId != null">
+        #{authorizerDeptId,jdbcType=BIGINT},
+      </if>
+      <if test="processInstanceId != null">
+        #{processInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="processInstanceStatus != null">
+        #{processInstanceStatus,jdbcType=BIT},
+      </if>
+      <if test="lastCloseId != null">
+        #{lastCloseId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtClose != null">
+        #{gmtClose,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentTermId != null">
+        #{paymentTermId,jdbcType=BIGINT},
+      </if>
+      <if test="publishState != null">
+        #{publishState,jdbcType=TINYINT},
+      </if>
+      <if test="changId != null">
+        #{changId,jdbcType=BIGINT},
+      </if>
+      <if test="taxId != null">
+        #{taxId,jdbcType=BIGINT},
+      </if>
+      <if test="currencyId != null">
+        #{currencyId,jdbcType=BIGINT},
+      </if>
+      <if test="currencyName != null">
+        #{currencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseTypeBusinessId != null">
+        #{purchaseTypeBusinessId,jdbcType=BIGINT},
+      </if>
+      <if test="createdShopId != null">
+        #{createdShopId,jdbcType=BIGINT},
+      </if>
+      <if test="urge != null">
+        #{urge,jdbcType=TINYINT},
+      </if>
+      <if test="attribute1 != null">
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null">
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null">
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null">
+        #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null">
+        #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null">
+        #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null">
+        #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null">
+        #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null">
+        #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null">
+        #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null">
+        #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null">
+        #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null">
+        #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute14 != null">
+        #{attribute14,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute15 != null">
+        #{attribute15,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute16 != null">
+        #{attribute16,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute17 != null">
+        #{attribute17,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute18 != null">
+        #{attribute18,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute19 != null">
+        #{attribute19,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute20 != null">
+        #{attribute20,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute21 != null">
+        #{attribute21,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute22 != null">
+        #{attribute22,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute23 != null">
+        #{attribute23,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute24 != null">
+        #{attribute24,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute25 != null">
+        #{attribute25,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute26 != null">
+        #{attribute26,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute27 != null">
+        #{attribute27,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute28 != null">
+        #{attribute28,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute29 != null">
+        #{attribute29,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute30 != null">
+        #{attribute30,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute31 != null">
+        #{attribute31,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute32 != null">
+        #{attribute32,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute33 != null">
+        #{attribute33,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute34 != null">
+        #{attribute34,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute35 != null">
+        #{attribute35,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute36 != null">
+        #{attribute36,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute37 != null">
+        #{attribute37,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute38 != null">
+        #{attribute38,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute39 != null">
+        #{attribute39,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute40 != null">
+        #{attribute40,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute41 != null">
+        #{attribute41,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute42 != null">
+        #{attribute42,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute43 != null">
+        #{attribute43,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute44 != null">
+        #{attribute44,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute45 != null">
+        #{attribute45,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute46 != null">
+        #{attribute46,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute47 != null">
+        #{attribute47,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute48 != null">
+        #{attribute48,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute49 != null">
+        #{attribute49,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute50 != null">
+        #{attribute50,jdbcType=VARCHAR},
+      </if>
+      <if test="writeBackStatus != null">
+        #{writeBackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="failReason != null">
+        #{failReason,jdbcType=VARCHAR},
+      </if>
+      <if test="failReasonType != null">
+        #{failReasonType,jdbcType=TINYINT},
+      </if>
+      <if test="supplierPoolId != null">
+        #{supplierPoolId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCloseCancel != null">
+        #{gmtCloseCancel,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastCancelId != null">
+        #{lastCancelId,jdbcType=BIGINT},
+      </if>
+      <if test="notaxLocalAmount != null">
+        #{notaxLocalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="taxLocalAmount != null">
+        #{taxLocalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="localTax != null">
+        #{localTax,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangeRate != null">
+        #{exchangeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="attachment != null">
+        #{attachment,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyj.leetcode.business.order.entity.PurOrder">
+    update pur_order
+    <set>
+      <if test="billNo != null">
+        bill_no = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billDate != null">
+        bill_date = #{billDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planReceiveDate != null">
+        plan_receive_date = #{planReceiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=BIGINT},
+      </if>
+      <if test="supplierAddress != null">
+        supplier_address = #{supplierAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        linkman = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="accountMode != null">
+        account_mode = #{accountMode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradNo != null">
+        trad_no = #{tradNo,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseType != null">
+        purchase_type = #{purchaseType,jdbcType=TINYINT},
+      </if>
+      <if test="enableQuality != null">
+        enable_quality = #{enableQuality,jdbcType=TINYINT},
+      </if>
+      <if test="taxRate != null">
+        tax_rate = #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="notaxAmount != null">
+        notax_amount = #{notaxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="taxAmount != null">
+        tax_amount = #{taxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        tax = #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="personId != null">
+        person_id = #{personId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enableApprove != null">
+        enable_approve = #{enableApprove,jdbcType=TINYINT},
+      </if>
+      <if test="approveStatus != null">
+        approve_status = #{approveStatus,jdbcType=TINYINT},
+      </if>
+      <if test="currentState != null">
+        current_state = #{currentState,jdbcType=TINYINT},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="lastModifierId != null">
+        last_modifier_id = #{lastModifierId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="businessId != null">
+        business_id = #{businessId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="authorizerId != null">
+        authorizer_id = #{authorizerId,jdbcType=BIGINT},
+      </if>
+      <if test="authorizerDeptId != null">
+        authorizer_dept_id = #{authorizerDeptId,jdbcType=BIGINT},
+      </if>
+      <if test="processInstanceId != null">
+        process_instance_id = #{processInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="processInstanceStatus != null">
+        process_instance_status = #{processInstanceStatus,jdbcType=BIT},
+      </if>
+      <if test="lastCloseId != null">
+        last_close_id = #{lastCloseId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtClose != null">
+        gmt_close = #{gmtClose,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentTermId != null">
+        payment_term_id = #{paymentTermId,jdbcType=BIGINT},
+      </if>
+      <if test="publishState != null">
+        publish_state = #{publishState,jdbcType=TINYINT},
+      </if>
+      <if test="changId != null">
+        chang_id = #{changId,jdbcType=BIGINT},
+      </if>
+      <if test="taxId != null">
+        tax_id = #{taxId,jdbcType=BIGINT},
+      </if>
+      <if test="currencyId != null">
+        currency_id = #{currencyId,jdbcType=BIGINT},
+      </if>
+      <if test="currencyName != null">
+        currency_name = #{currencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseTypeBusinessId != null">
+        purchase_type_business_id = #{purchaseTypeBusinessId,jdbcType=BIGINT},
+      </if>
+      <if test="createdShopId != null">
+        created_shop_id = #{createdShopId,jdbcType=BIGINT},
+      </if>
+      <if test="urge != null">
+        urge = #{urge,jdbcType=TINYINT},
+      </if>
+      <if test="attribute1 != null">
+        attribute1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null">
+        attribute2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null">
+        attribute3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null">
+        attribute4 = #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null">
+        attribute5 = #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null">
+        attribute6 = #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null">
+        attribute7 = #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null">
+        attribute8 = #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null">
+        attribute9 = #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null">
+        attribute10 = #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null">
+        attribute11 = #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null">
+        attribute12 = #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null">
+        attribute13 = #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute14 != null">
+        attribute14 = #{attribute14,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute15 != null">
+        attribute15 = #{attribute15,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute16 != null">
+        attribute16 = #{attribute16,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute17 != null">
+        attribute17 = #{attribute17,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute18 != null">
+        attribute18 = #{attribute18,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute19 != null">
+        attribute19 = #{attribute19,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute20 != null">
+        attribute20 = #{attribute20,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute21 != null">
+        attribute21 = #{attribute21,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute22 != null">
+        attribute22 = #{attribute22,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute23 != null">
+        attribute23 = #{attribute23,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute24 != null">
+        attribute24 = #{attribute24,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute25 != null">
+        attribute25 = #{attribute25,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute26 != null">
+        attribute26 = #{attribute26,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute27 != null">
+        attribute27 = #{attribute27,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute28 != null">
+        attribute28 = #{attribute28,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute29 != null">
+        attribute29 = #{attribute29,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute30 != null">
+        attribute30 = #{attribute30,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute31 != null">
+        attribute31 = #{attribute31,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute32 != null">
+        attribute32 = #{attribute32,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute33 != null">
+        attribute33 = #{attribute33,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute34 != null">
+        attribute34 = #{attribute34,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute35 != null">
+        attribute35 = #{attribute35,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute36 != null">
+        attribute36 = #{attribute36,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute37 != null">
+        attribute37 = #{attribute37,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute38 != null">
+        attribute38 = #{attribute38,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute39 != null">
+        attribute39 = #{attribute39,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute40 != null">
+        attribute40 = #{attribute40,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute41 != null">
+        attribute41 = #{attribute41,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute42 != null">
+        attribute42 = #{attribute42,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute43 != null">
+        attribute43 = #{attribute43,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute44 != null">
+        attribute44 = #{attribute44,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute45 != null">
+        attribute45 = #{attribute45,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute46 != null">
+        attribute46 = #{attribute46,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute47 != null">
+        attribute47 = #{attribute47,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute48 != null">
+        attribute48 = #{attribute48,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute49 != null">
+        attribute49 = #{attribute49,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute50 != null">
+        attribute50 = #{attribute50,jdbcType=VARCHAR},
+      </if>
+      <if test="writeBackStatus != null">
+        write_back_status = #{writeBackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="failReason != null">
+        fail_reason = #{failReason,jdbcType=VARCHAR},
+      </if>
+      <if test="failReasonType != null">
+        fail_reason_type = #{failReasonType,jdbcType=TINYINT},
+      </if>
+      <if test="supplierPoolId != null">
+        supplier_pool_id = #{supplierPoolId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCloseCancel != null">
+        gmt_close_cancel = #{gmtCloseCancel,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastCancelId != null">
+        last_cancel_id = #{lastCancelId,jdbcType=BIGINT},
+      </if>
+      <if test="notaxLocalAmount != null">
+        notax_local_amount = #{notaxLocalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="taxLocalAmount != null">
+        tax_local_amount = #{taxLocalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="localTax != null">
+        local_tax = #{localTax,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangeRate != null">
+        exchange_rate = #{exchangeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="attachment != null">
+        attachment = #{attachment,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zyj.leetcode.business.order.entity.PurOrder">
+    update pur_order
+    set bill_no = #{billNo,jdbcType=VARCHAR},
+      bill_date = #{billDate,jdbcType=TIMESTAMP},
+      plan_receive_date = #{planReceiveDate,jdbcType=TIMESTAMP},
+      supplier_id = #{supplierId,jdbcType=BIGINT},
+      supplier_address = #{supplierAddress,jdbcType=VARCHAR},
+      linkman = #{linkman,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      account_mode = #{accountMode,jdbcType=VARCHAR},
+      trad_no = #{tradNo,jdbcType=VARCHAR},
+      purchase_type = #{purchaseType,jdbcType=TINYINT},
+      enable_quality = #{enableQuality,jdbcType=TINYINT},
+      tax_rate = #{taxRate,jdbcType=DECIMAL},
+      notax_amount = #{notaxAmount,jdbcType=DECIMAL},
+      tax_amount = #{taxAmount,jdbcType=DECIMAL},
+      tax = #{tax,jdbcType=DECIMAL},
+      person_id = #{personId,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      enable_approve = #{enableApprove,jdbcType=TINYINT},
+      approve_status = #{approveStatus,jdbcType=TINYINT},
+      current_state = #{currentState,jdbcType=TINYINT},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      last_modifier_id = #{lastModifierId,jdbcType=BIGINT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=TINYINT},
+      tenant_id = #{tenantId,jdbcType=BIGINT},
+      business_id = #{businessId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      authorizer_id = #{authorizerId,jdbcType=BIGINT},
+      authorizer_dept_id = #{authorizerDeptId,jdbcType=BIGINT},
+      process_instance_id = #{processInstanceId,jdbcType=VARCHAR},
+      process_instance_status = #{processInstanceStatus,jdbcType=BIT},
+      last_close_id = #{lastCloseId,jdbcType=BIGINT},
+      gmt_close = #{gmtClose,jdbcType=TIMESTAMP},
+      payment_term_id = #{paymentTermId,jdbcType=BIGINT},
+      publish_state = #{publishState,jdbcType=TINYINT},
+      chang_id = #{changId,jdbcType=BIGINT},
+      tax_id = #{taxId,jdbcType=BIGINT},
+      currency_id = #{currencyId,jdbcType=BIGINT},
+      currency_name = #{currencyName,jdbcType=VARCHAR},
+      purchase_type_business_id = #{purchaseTypeBusinessId,jdbcType=BIGINT},
+      created_shop_id = #{createdShopId,jdbcType=BIGINT},
+      urge = #{urge,jdbcType=TINYINT},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR},
+      attribute4 = #{attribute4,jdbcType=VARCHAR},
+      attribute5 = #{attribute5,jdbcType=VARCHAR},
+      attribute6 = #{attribute6,jdbcType=VARCHAR},
+      attribute7 = #{attribute7,jdbcType=VARCHAR},
+      attribute8 = #{attribute8,jdbcType=VARCHAR},
+      attribute9 = #{attribute9,jdbcType=VARCHAR},
+      attribute10 = #{attribute10,jdbcType=VARCHAR},
+      attribute11 = #{attribute11,jdbcType=VARCHAR},
+      attribute12 = #{attribute12,jdbcType=VARCHAR},
+      attribute13 = #{attribute13,jdbcType=VARCHAR},
+      attribute14 = #{attribute14,jdbcType=VARCHAR},
+      attribute15 = #{attribute15,jdbcType=VARCHAR},
+      attribute16 = #{attribute16,jdbcType=VARCHAR},
+      attribute17 = #{attribute17,jdbcType=VARCHAR},
+      attribute18 = #{attribute18,jdbcType=VARCHAR},
+      attribute19 = #{attribute19,jdbcType=VARCHAR},
+      attribute20 = #{attribute20,jdbcType=VARCHAR},
+      attribute21 = #{attribute21,jdbcType=VARCHAR},
+      attribute22 = #{attribute22,jdbcType=VARCHAR},
+      attribute23 = #{attribute23,jdbcType=VARCHAR},
+      attribute24 = #{attribute24,jdbcType=VARCHAR},
+      attribute25 = #{attribute25,jdbcType=VARCHAR},
+      attribute26 = #{attribute26,jdbcType=VARCHAR},
+      attribute27 = #{attribute27,jdbcType=VARCHAR},
+      attribute28 = #{attribute28,jdbcType=VARCHAR},
+      attribute29 = #{attribute29,jdbcType=VARCHAR},
+      attribute30 = #{attribute30,jdbcType=VARCHAR},
+      attribute31 = #{attribute31,jdbcType=VARCHAR},
+      attribute32 = #{attribute32,jdbcType=VARCHAR},
+      attribute33 = #{attribute33,jdbcType=VARCHAR},
+      attribute34 = #{attribute34,jdbcType=VARCHAR},
+      attribute35 = #{attribute35,jdbcType=VARCHAR},
+      attribute36 = #{attribute36,jdbcType=VARCHAR},
+      attribute37 = #{attribute37,jdbcType=VARCHAR},
+      attribute38 = #{attribute38,jdbcType=VARCHAR},
+      attribute39 = #{attribute39,jdbcType=VARCHAR},
+      attribute40 = #{attribute40,jdbcType=VARCHAR},
+      attribute41 = #{attribute41,jdbcType=VARCHAR},
+      attribute42 = #{attribute42,jdbcType=VARCHAR},
+      attribute43 = #{attribute43,jdbcType=VARCHAR},
+      attribute44 = #{attribute44,jdbcType=VARCHAR},
+      attribute45 = #{attribute45,jdbcType=VARCHAR},
+      attribute46 = #{attribute46,jdbcType=VARCHAR},
+      attribute47 = #{attribute47,jdbcType=VARCHAR},
+      attribute48 = #{attribute48,jdbcType=VARCHAR},
+      attribute49 = #{attribute49,jdbcType=VARCHAR},
+      attribute50 = #{attribute50,jdbcType=VARCHAR},
+      write_back_status = #{writeBackStatus,jdbcType=TINYINT},
+      fail_reason = #{failReason,jdbcType=VARCHAR},
+      fail_reason_type = #{failReasonType,jdbcType=TINYINT},
+      supplier_pool_id = #{supplierPoolId,jdbcType=BIGINT},
+      gmt_close_cancel = #{gmtCloseCancel,jdbcType=TIMESTAMP},
+      last_cancel_id = #{lastCancelId,jdbcType=BIGINT},
+      notax_local_amount = #{notaxLocalAmount,jdbcType=DECIMAL},
+      tax_local_amount = #{taxLocalAmount,jdbcType=DECIMAL},
+      local_tax = #{localTax,jdbcType=DECIMAL},
+      exchange_rate = #{exchangeRate,jdbcType=DECIMAL},
+      attachment = #{attachment,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyj.leetcode.business.order.entity.PurOrder">
+    update pur_order
+    set bill_no = #{billNo,jdbcType=VARCHAR},
+      bill_date = #{billDate,jdbcType=TIMESTAMP},
+      plan_receive_date = #{planReceiveDate,jdbcType=TIMESTAMP},
+      supplier_id = #{supplierId,jdbcType=BIGINT},
+      supplier_address = #{supplierAddress,jdbcType=VARCHAR},
+      linkman = #{linkman,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      account_mode = #{accountMode,jdbcType=VARCHAR},
+      trad_no = #{tradNo,jdbcType=VARCHAR},
+      purchase_type = #{purchaseType,jdbcType=TINYINT},
+      enable_quality = #{enableQuality,jdbcType=TINYINT},
+      tax_rate = #{taxRate,jdbcType=DECIMAL},
+      notax_amount = #{notaxAmount,jdbcType=DECIMAL},
+      tax_amount = #{taxAmount,jdbcType=DECIMAL},
+      tax = #{tax,jdbcType=DECIMAL},
+      person_id = #{personId,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      enable_approve = #{enableApprove,jdbcType=TINYINT},
+      approve_status = #{approveStatus,jdbcType=TINYINT},
+      current_state = #{currentState,jdbcType=TINYINT},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      last_modifier_id = #{lastModifierId,jdbcType=BIGINT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=TINYINT},
+      tenant_id = #{tenantId,jdbcType=BIGINT},
+      business_id = #{businessId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      authorizer_id = #{authorizerId,jdbcType=BIGINT},
+      authorizer_dept_id = #{authorizerDeptId,jdbcType=BIGINT},
+      process_instance_id = #{processInstanceId,jdbcType=VARCHAR},
+      process_instance_status = #{processInstanceStatus,jdbcType=BIT},
+      last_close_id = #{lastCloseId,jdbcType=BIGINT},
+      gmt_close = #{gmtClose,jdbcType=TIMESTAMP},
+      payment_term_id = #{paymentTermId,jdbcType=BIGINT},
+      publish_state = #{publishState,jdbcType=TINYINT},
+      chang_id = #{changId,jdbcType=BIGINT},
+      tax_id = #{taxId,jdbcType=BIGINT},
+      currency_id = #{currencyId,jdbcType=BIGINT},
+      currency_name = #{currencyName,jdbcType=VARCHAR},
+      purchase_type_business_id = #{purchaseTypeBusinessId,jdbcType=BIGINT},
+      created_shop_id = #{createdShopId,jdbcType=BIGINT},
+      urge = #{urge,jdbcType=TINYINT},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR},
+      attribute4 = #{attribute4,jdbcType=VARCHAR},
+      attribute5 = #{attribute5,jdbcType=VARCHAR},
+      attribute6 = #{attribute6,jdbcType=VARCHAR},
+      attribute7 = #{attribute7,jdbcType=VARCHAR},
+      attribute8 = #{attribute8,jdbcType=VARCHAR},
+      attribute9 = #{attribute9,jdbcType=VARCHAR},
+      attribute10 = #{attribute10,jdbcType=VARCHAR},
+      attribute11 = #{attribute11,jdbcType=VARCHAR},
+      attribute12 = #{attribute12,jdbcType=VARCHAR},
+      attribute13 = #{attribute13,jdbcType=VARCHAR},
+      attribute14 = #{attribute14,jdbcType=VARCHAR},
+      attribute15 = #{attribute15,jdbcType=VARCHAR},
+      attribute16 = #{attribute16,jdbcType=VARCHAR},
+      attribute17 = #{attribute17,jdbcType=VARCHAR},
+      attribute18 = #{attribute18,jdbcType=VARCHAR},
+      attribute19 = #{attribute19,jdbcType=VARCHAR},
+      attribute20 = #{attribute20,jdbcType=VARCHAR},
+      attribute21 = #{attribute21,jdbcType=VARCHAR},
+      attribute22 = #{attribute22,jdbcType=VARCHAR},
+      attribute23 = #{attribute23,jdbcType=VARCHAR},
+      attribute24 = #{attribute24,jdbcType=VARCHAR},
+      attribute25 = #{attribute25,jdbcType=VARCHAR},
+      attribute26 = #{attribute26,jdbcType=VARCHAR},
+      attribute27 = #{attribute27,jdbcType=VARCHAR},
+      attribute28 = #{attribute28,jdbcType=VARCHAR},
+      attribute29 = #{attribute29,jdbcType=VARCHAR},
+      attribute30 = #{attribute30,jdbcType=VARCHAR},
+      attribute31 = #{attribute31,jdbcType=VARCHAR},
+      attribute32 = #{attribute32,jdbcType=VARCHAR},
+      attribute33 = #{attribute33,jdbcType=VARCHAR},
+      attribute34 = #{attribute34,jdbcType=VARCHAR},
+      attribute35 = #{attribute35,jdbcType=VARCHAR},
+      attribute36 = #{attribute36,jdbcType=VARCHAR},
+      attribute37 = #{attribute37,jdbcType=VARCHAR},
+      attribute38 = #{attribute38,jdbcType=VARCHAR},
+      attribute39 = #{attribute39,jdbcType=VARCHAR},
+      attribute40 = #{attribute40,jdbcType=VARCHAR},
+      attribute41 = #{attribute41,jdbcType=VARCHAR},
+      attribute42 = #{attribute42,jdbcType=VARCHAR},
+      attribute43 = #{attribute43,jdbcType=VARCHAR},
+      attribute44 = #{attribute44,jdbcType=VARCHAR},
+      attribute45 = #{attribute45,jdbcType=VARCHAR},
+      attribute46 = #{attribute46,jdbcType=VARCHAR},
+      attribute47 = #{attribute47,jdbcType=VARCHAR},
+      attribute48 = #{attribute48,jdbcType=VARCHAR},
+      attribute49 = #{attribute49,jdbcType=VARCHAR},
+      attribute50 = #{attribute50,jdbcType=VARCHAR},
+      write_back_status = #{writeBackStatus,jdbcType=TINYINT},
+      fail_reason = #{failReason,jdbcType=VARCHAR},
+      fail_reason_type = #{failReasonType,jdbcType=TINYINT},
+      supplier_pool_id = #{supplierPoolId,jdbcType=BIGINT},
+      gmt_close_cancel = #{gmtCloseCancel,jdbcType=TIMESTAMP},
+      last_cancel_id = #{lastCancelId,jdbcType=BIGINT},
+      notax_local_amount = #{notaxLocalAmount,jdbcType=DECIMAL},
+      tax_local_amount = #{taxLocalAmount,jdbcType=DECIMAL},
+      local_tax = #{localTax,jdbcType=DECIMAL},
+      exchange_rate = #{exchangeRate,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <insert id="batchInsert">
+    insert into pur_order (id, bill_no, bill_date,
+    plan_receive_date, supplier_id, supplier_address,
+    linkman, telephone, account_mode,
+    trad_no, purchase_type, enable_quality,
+    tax_rate, notax_amount, tax_amount,
+    tax, person_id, remark,
+    enable_approve, approve_status, current_state,
+    creater_id, last_modifier_id, gmt_create,
+    gmt_modified, del_flag, tenant_id,
+    business_id, shop_id, authorizer_id,
+    authorizer_dept_id, process_instance_id, process_instance_status,
+    last_close_id, gmt_close, payment_term_id,
+    publish_state, chang_id, tax_id,
+    currency_id, currency_name, purchase_type_business_id,
+    created_shop_id, urge, attribute1,
+    attribute2, attribute3, attribute4,
+    attribute5, attribute6, attribute7,
+    attribute8, attribute9, attribute10,
+    attribute11, attribute12, attribute13,
+    attribute14, attribute15, attribute16,
+    attribute17, attribute18, attribute19,
+    attribute20, attribute21, attribute22,
+    attribute23, attribute24, attribute25,
+    attribute26, attribute27, attribute28,
+    attribute29, attribute30, attribute31,
+    attribute32, attribute33, attribute34,
+    attribute35, attribute36, attribute37,
+    attribute38, attribute39, attribute40,
+    attribute41, attribute42, attribute43,
+    attribute44, attribute45, attribute46,
+    attribute47, attribute48, attribute49,
+    attribute50, write_back_status, fail_reason,
+    fail_reason_type, supplier_pool_id, gmt_close_cancel,
+    last_cancel_id, notax_local_amount, tax_local_amount,
+    local_tax, exchange_rate, attachment
+    )
+    values
+    <foreach collection="list" index="index" item="data" separator=",">
+      (#{data.id,jdbcType=BIGINT}, #{data.billNo,jdbcType=VARCHAR}, #{data.billDate,jdbcType=TIMESTAMP},
+      #{data.planReceiveDate,jdbcType=TIMESTAMP}, #{data.supplierId,jdbcType=BIGINT},
+      #{data.supplierAddress,jdbcType=VARCHAR},
+      #{data.linkman,jdbcType=VARCHAR}, #{data.telephone,jdbcType=VARCHAR}, #{data.accountMode,jdbcType=VARCHAR},
+      #{data.tradNo,jdbcType=VARCHAR}, #{data.purchaseType,jdbcType=TINYINT},
+      #{data.enableQuality,jdbcType=TINYINT},
+      #{data.taxRate,jdbcType=DECIMAL}, #{data.notaxAmount,jdbcType=DECIMAL}, #{data.taxAmount,jdbcType=DECIMAL},
+      #{data.tax,jdbcType=DECIMAL}, #{data.personId,jdbcType=BIGINT}, #{data.remark,jdbcType=VARCHAR},
+      #{data.enableApprove,jdbcType=TINYINT}, #{data.approveStatus,jdbcType=TINYINT},
+      #{data.currentState,jdbcType=TINYINT},
+      #{data.createrId,jdbcType=BIGINT}, #{data.lastModifierId,jdbcType=BIGINT},
+      #{data.gmtCreate,jdbcType=TIMESTAMP},
+      #{data.gmtModified,jdbcType=TIMESTAMP}, #{data.delFlag,jdbcType=TINYINT}, #{data.tenantId,jdbcType=BIGINT},
+      #{data.businessId,jdbcType=BIGINT}, #{data.shopId,jdbcType=BIGINT}, #{data.authorizerId,jdbcType=BIGINT},
+      #{data.authorizerDeptId,jdbcType=BIGINT}, #{data.processInstanceId,jdbcType=VARCHAR},
+      #{data.processInstanceStatus,jdbcType=BIT},
+      #{data.lastCloseId,jdbcType=BIGINT}, #{data.gmtClose,jdbcType=TIMESTAMP},
+      #{data.paymentTermId,jdbcType=BIGINT},
+      #{data.publishState,jdbcType=TINYINT}, #{data.changId,jdbcType=BIGINT}, #{data.taxId,jdbcType=BIGINT},
+      #{data.currencyId,jdbcType=BIGINT}, #{data.currencyName,jdbcType=VARCHAR},
+      #{data.purchaseTypeBusinessId,jdbcType=BIGINT},
+      #{data.createdShopId,jdbcType=BIGINT}, #{data.urge,jdbcType=TINYINT}, #{data.attribute1,jdbcType=VARCHAR},
+      #{data.attribute2,jdbcType=VARCHAR}, #{data.attribute3,jdbcType=VARCHAR},
+      #{data.attribute4,jdbcType=VARCHAR},
+      #{data.attribute5,jdbcType=VARCHAR}, #{data.attribute6,jdbcType=VARCHAR},
+      #{data.attribute7,jdbcType=VARCHAR},
+      #{data.attribute8,jdbcType=VARCHAR}, #{data.attribute9,jdbcType=VARCHAR},
+      #{data.attribute10,jdbcType=VARCHAR},
+      #{data.attribute11,jdbcType=VARCHAR}, #{data.attribute12,jdbcType=VARCHAR},
+      #{data.attribute13,jdbcType=VARCHAR},
+      #{data.attribute14,jdbcType=VARCHAR}, #{data.attribute15,jdbcType=VARCHAR},
+      #{data.attribute16,jdbcType=VARCHAR},
+      #{data.attribute17,jdbcType=VARCHAR}, #{data.attribute18,jdbcType=VARCHAR},
+      #{data.attribute19,jdbcType=VARCHAR},
+      #{data.attribute20,jdbcType=VARCHAR}, #{data.attribute21,jdbcType=VARCHAR},
+      #{data.attribute22,jdbcType=VARCHAR},
+      #{data.attribute23,jdbcType=VARCHAR}, #{data.attribute24,jdbcType=VARCHAR},
+      #{data.attribute25,jdbcType=VARCHAR},
+      #{data.attribute26,jdbcType=VARCHAR}, #{data.attribute27,jdbcType=VARCHAR},
+      #{data.attribute28,jdbcType=VARCHAR},
+      #{data.attribute29,jdbcType=VARCHAR}, #{data.attribute30,jdbcType=VARCHAR},
+      #{data.attribute31,jdbcType=VARCHAR},
+      #{data.attribute32,jdbcType=VARCHAR}, #{data.attribute33,jdbcType=VARCHAR},
+      #{data.attribute34,jdbcType=VARCHAR},
+      #{data.attribute35,jdbcType=VARCHAR}, #{data.attribute36,jdbcType=VARCHAR},
+      #{data.attribute37,jdbcType=VARCHAR},
+      #{data.attribute38,jdbcType=VARCHAR}, #{data.attribute39,jdbcType=VARCHAR},
+      #{data.attribute40,jdbcType=VARCHAR},
+      #{data.attribute41,jdbcType=VARCHAR}, #{data.attribute42,jdbcType=VARCHAR},
+      #{data.attribute43,jdbcType=VARCHAR},
+      #{data.attribute44,jdbcType=VARCHAR}, #{data.attribute45,jdbcType=VARCHAR},
+      #{data.attribute46,jdbcType=VARCHAR},
+      #{data.attribute47,jdbcType=VARCHAR}, #{data.attribute48,jdbcType=VARCHAR},
+      #{data.attribute49,jdbcType=VARCHAR},
+      #{data.attribute50,jdbcType=VARCHAR}, #{data.writeBackStatus,jdbcType=TINYINT},
+      #{data.failReason,jdbcType=VARCHAR},
+      #{data.failReasonType,jdbcType=TINYINT}, #{data.supplierPoolId,jdbcType=BIGINT},
+      #{data.gmtCloseCancel,jdbcType=TIMESTAMP},
+      #{data.lastCancelId,jdbcType=BIGINT}, #{data.notaxLocalAmount,jdbcType=DECIMAL},
+      #{data.taxLocalAmount,jdbcType=DECIMAL},
+      #{data.localTax,jdbcType=DECIMAL}, #{data.exchangeRate,jdbcType=DECIMAL},
+      #{data.attachment,jdbcType=LONGVARCHAR}
+      )
+    </foreach>
+  </insert>
+</mapper>

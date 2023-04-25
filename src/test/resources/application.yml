@@ -1,0 +1,8 @@
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:ddl/*.sql  # 每次启动程序，都会运行以对数据库操作
+    # data: classpath:db/data-h2.sql  # 每次启动程序，都会运行以对数据库的数据操作
+    # url: jdbc:h2:mem:test #配置h2数据库的连接地址
+    url: jdbc:h2:file:./dbAccount #配置h2数据库的连接地址08692555
