@@ -1,5 +1,6 @@
 package com.zyj.leetcode.infix2suffix;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
@@ -27,6 +28,7 @@ public class ComputeSuffixExp {
             return null;
         }
         List<String> inputList = transferAssembleUnknowns(param);
+        log.info("后缀表达式：" + JSON.toJSONString(inputList));
         return doParse(inputList, param);
     }
 
@@ -119,7 +121,7 @@ public class ComputeSuffixExp {
             final MathExpress express = mathExpresses.get(i);
             switch (express.getOperator()) {
                 case "+": {
-                    final String[] split = express.getLeft().split(SPLIT_SEPARATOR+"\\+"+SPLIT_SEPARATOR);
+                    final String[] split = express.getLeft().split(SPLIT_SEPARATOR + "\\+" + SPLIT_SEPARATOR);
                     String newRight;
                     BigDecimal bigDecimal1;
                     BigDecimal bigDecimal2;
@@ -232,10 +234,10 @@ public class ComputeSuffixExp {
         solveUnknownsParam.setLeft(left);
         solveUnknownsParam.setUnknowns("x");
         solveUnknownsParam.setUnknownsMap(new HashMap<>());
-        log.info("result>:{}", solveUnknownsExp(solveUnknownsParam));
+//        log.info("result>:{}", solveUnknownsExp(solveUnknownsParam));
 
-        solveUnknownsParam.setLeft("-3-3.2*(x+5)-6/(1+2*3)");
-        solveUnknownsParam.setRight(right);
+        solveUnknownsParam.setLeft("3-3.2*(1+5)-6/(1+3*3)-(x+2)");
+        solveUnknownsParam.setRight("0");
         log.info("result>:{}", solveUnknownsExp(solveUnknownsParam));
 
     }

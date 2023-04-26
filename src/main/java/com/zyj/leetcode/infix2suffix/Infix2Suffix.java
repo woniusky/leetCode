@@ -44,11 +44,11 @@ public class Infix2Suffix {
             switch (str) {
                 case "+":
                 case "-":
-                    getOperStr(stack, str, 1, outputList);
+                    getOperatorStr(stack, str, 1, outputList);
                     break;
                 case "*":
                 case "/":
-                    getOperStr(stack, str, 2, outputList);
+                    getOperatorStr(stack, str, 2, outputList);
                     break;
                 case "(":
                     stack.push(str);
@@ -90,14 +90,14 @@ public class Infix2Suffix {
             if (characterList.contains(c)) {
                 if (start != i) {
                     final String ele = input.substring(start, i);
-                    eleList.add(ele);
+                    eleList.add(ele.trim());
                 }
                 start = i + 1;
-                eleList.add(String.valueOf(c));
+                eleList.add(String.valueOf(c).trim());
             } else {
                 if (i == chars.length - 1) {
                     final String ele = input.substring(start);
-                    eleList.add(ele);
+                    eleList.add(ele.trim());
                 }
             }
         }
@@ -112,7 +112,7 @@ public class Infix2Suffix {
      * @param currentPriority 操作符的优先级
      * @param outputList
      */
-    private static void getOperStr(Stack<String> stack, String opThis, int currentPriority, List<String> outputList) {
+    private static void getOperatorStr(Stack<String> stack, String opThis, int currentPriority, List<String> outputList) {
         while (!stack.isEmpty()) {
             String opTop = stack.pop();
             //括号有较高优先级重新压入栈中
