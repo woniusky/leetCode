@@ -10,7 +10,8 @@ public class SendQQEmail {
     public static void main(String[] args) {
 
         // 设置邮件服务器信息
-        String host = "smtp.exmail.qq.com";
+        String host = "smtp.qiye.aliyun.com";
+//        String host = "smtp.exmail.qq.com";
         final String username = "rdteam@inclution.com";
         final String password = "xVrdD7tX3w";
 //        final String username = "zheng.rulin@inclution.com";
@@ -21,7 +22,8 @@ public class SendQQEmail {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "465");
+//        props.put("mail.smtp.port", "587");
 
         // 获取邮件会话
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
@@ -44,9 +46,9 @@ public class SendQQEmail {
             message.setRecipients(Message.RecipientType.TO, receives);
 
 
-            InternetAddress[] ccList = new InternetAddress[2];
+            InternetAddress[] ccList = new InternetAddress[1];
             ccList[0] = new InternetAddress("huang.yun@inclution.com");
-            ccList[1] = new InternetAddress("qi.jiabo@inclution.com");
+//            ccList[1] = new InternetAddress("qi.jiabo@inclution.com");
             message.setRecipients(Message.RecipientType.CC, ccList);
 
             // 设置邮件主题 "黄鋆"<huang.yun@inclution.com>;"戚佳波"<qi.jiabo@inclution.com>;
